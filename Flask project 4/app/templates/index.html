@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Welcome to GPT Chat</h1>
+    <p>Chat with AI in real-time. Sign up or log in to get started!</p>
+    {% if not current_user.is_authenticated %}
+        <a href="{{ url_for('main.register') }}" class="btn btn-primary">Sign Up</a>
+        <a href="{{ url_for('main.login') }}" class="btn btn-secondary">Log In</a>
+    {% else %}
+        <a href="{{ url_for('main.chat') }}" class="btn btn-success">Start Chatting</a>
+    {% endif %}
+</div>
+{% endblock %}
